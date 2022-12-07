@@ -24,6 +24,8 @@ passport.use(
           email: profile.emails[0].value,
           googleId: profile.id,
         });
+
+        return cb(null, user);
       } catch (error) {
         return cb(error);
       }

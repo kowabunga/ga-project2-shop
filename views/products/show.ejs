@@ -1,0 +1,29 @@
+<%- include('../layout/header', {title:product.name}) %>
+
+<a href="/products" class="btn btn-outline-secondary mb-2"><i class="bi bi-arrow-left"></i>All Products</a>
+<div class="row">
+  <div class="col-sm-12 col-md-7 col-lg-6">
+    <img src="<%= product.image.url %> " alt="<%= product.image.alt %> " class="img-fluid rounded">
+  </div>
+  <div class="col-sm-12 col-md-5 col-lg-6 mt-5 mt-md-0 p-md-5">
+    <h1 class="display-5"><%= product.name %></h1>
+    <p class="lead">$<%= product.price %> </p>
+    <p><%= product.description %> </p>
+    <button class="btn btn-primary" id="add-to-cart" data-item="<%= product._id %> ">Add To Cart</button>
+  </div>
+</div>
+
+<script>
+  document.querySelector('#add-to-cart').addEventListener('click', (e) => {
+    if (localStorage.getItem("ga-project2-cart") !== null) {
+      let cart = localStorage.getItem("ga-project2-cart");
+      cart += `${e.target.dataset.item}`
+      localStorage.setItem("ga-project2-cart", cart)
+    } else {
+      localStorage.setItem("ga-project2-cart", [e.target.dataset.item])
+    }
+
+  })
+</script>
+
+<%- include('../layout/footer') %>

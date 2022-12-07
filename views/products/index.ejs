@@ -1,5 +1,7 @@
-<%- include('../partials/header', {title:'Products'}) %>
-<main>
-  hello
-</main>
-<%- include('../partials/footer') %>
+<%- include('../layout/header', {title:'Products'}) %>
+<div class="d-flex flex-wrap justify-content-evenly">
+  <% products.forEach(product => { %>
+  <%- include('../partials/singleProductCard',{product}) %>
+  <% }) %>
+</div>
+<%- include('../layout/footer') %>
