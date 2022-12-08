@@ -9,21 +9,11 @@
     <h1 class="display-5"><%= product.name %></h1>
     <p class="lead">$<%= product.price %> </p>
     <p><%= product.description %> </p>
-    <button class="btn btn-primary" id="add-to-cart" data-item="<%= product._id %> ">Add To Cart</button>
+    <form action="/cart" method="POST">
+      <input type="text" value="<%= product._id %>" hidden name="products">
+      <button class="btn btn-primary" id="add-to-cart" type="submit">Add To Cart</button>
+    </form>
   </div>
 </div>
-
-<script>
-  document.querySelector('#add-to-cart').addEventListener('click', (e) => {
-    if (localStorage.getItem("ga-project2-cart") !== null) {
-      let cart = localStorage.getItem("ga-project2-cart");
-      cart += `${e.target.dataset.item}`
-      localStorage.setItem("ga-project2-cart", cart)
-    } else {
-      localStorage.setItem("ga-project2-cart", [e.target.dataset.item])
-    }
-
-  })
-</script>
 
 <%- include('../layout/footer') %>
