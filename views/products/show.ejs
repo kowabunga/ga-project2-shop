@@ -10,7 +10,7 @@
     <p class="lead">$<%= product.price %> </p>
     <p><%= product.description %> </p>
     <form action="/cart" method="POST">
-      <input type="text" value="<%= product._id %>" hidden name="products">
+      <input type="text" value="<%= product._id %>" hidden name="productId">
       <button class="btn btn-primary" id="add-to-cart" type="submit">Add To Cart</button>
     </form>
   </div>

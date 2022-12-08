@@ -15,6 +15,8 @@ async function show(req, res) {
   }
 }
 
+// Currently only for creating new products via Postman
+// May be used later on if user is given ability to create products to sell
 async function create(req, res) {
   try {
     const product = await Product.create(req.body);

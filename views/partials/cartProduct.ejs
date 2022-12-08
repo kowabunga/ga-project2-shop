@@ -1,0 +1,21 @@
+<div class="row border rounded mb-2 p-2">
+  <div class="col-md-2">
+    <img src="<%= cartItem.product.image.url %>" alt="<%= cartItem.product.image.alt %>" class="img-fluid rounded">
+  </div>
+  <div class="col-md-4"></div>
+  <div class="col-md-6 d-flex flex-column justify-content-around">
+    <div class="d-flex">
+      <h5><%= cartItem.product.name %> </h5>
+      <p class="lead ms-auto">$<%= cartItem.product.price %> </p>
+    </div>
+    <div class="ms-auto">
+      <form action="/cart/<%= cartId %>?_method=PUT" method="POST">
+        <div class="input-group">
+          <input type="number" name="quantity" value="<%= cartItem.count %>" class="form-control" min="0">
+          <input type="text" name="productId" value="<%= cartItem.product._id %>" hidden>
+          <button class="btn btn-secondary">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
