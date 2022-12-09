@@ -1,0 +1,66 @@
+<%- include('../layout/header', {title:'Checkout'}) %>
+<button class="btn btn-outline-dark w-25 text-center mb-4" type="button" data-bs-toggle="collapse" data-bs-target="#cartList" aria-expanded="false" aria-controls="cartList" id="in-cart-btn">
+  In This Order <i class="bi bi-chevron-down" id="in-cart-btn-icon"></i>
+</button>
+
+<ul class="list-group collapse mb-5" id="cartList">
+  <% cart.products.forEach(product => { %>
+  <%- include('../partials/checkoutProduct.ejs', {cartItem:product}) %>
+  <% }) %>
+</ul>
+
+<h3>Shipping Info</h3>
+<form action="/checkout" method="POST">
+  <div class="mb-3">
+    <input type="text" class="form-control" id="name" placeholder="Name">
+  </div>
+  <div class="mb-3">
+    <input type="email" class="form-control" id="email" placeholder="Email">
+  </div>
+  <div class="mb-3">
+    <input type="text" class="form-control" id="street" placeholder="Street">
+  </div>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="City" aria-label="City">
+    <input type="text" class="form-control" placeholder="State" aria-label="State">
+  </div>
+
+  <hr>
+
+  <h3>Billing Info</h3>
+  <div class="mb-3">
+    <input type="text" class="form-control" id="name" placeholder="Credit Card Number">
+  </div>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="CVV" aria-label="CVV">
+    <input type="text" class="form-control" placeholder="MM/YY" aria-label="State">
+  </div>
+  <div class="row">
+    <div class="col-md-9"></div>
+    <div class="col-md-3">
+      <div class="d-flex flex-column mt-3 align-items-end">
+        <p class="d-flex justify-content-between w-100"><strong class="text-bold">Subtotal:</strong> <span>$ <%= total.toFixed(2) %></span> </p>
+        <p class="d-flex justify-content-between w-100"><strong>Shipping:</strong> <span>$4.99</span></p>
+        <p class="d-flex justify-content-between w-100"><strong>Total:</strong> <span>$<%= (total+5.99).toFixed(2) %></span></p>
+      </div>
+      <button type="submit" class="btn btn-dark w-100">Place Order</button>
+    </div>
+  </div>
+
+</form>
+
+<script>
+  const inCartBtn = document.querySelector('#in-cart-btn');
+  const inCartBtnIcon = document.querySelector('#in-cart-btn-icon')
+  inCartBtn.addEventListener('click', () => {
+    if (inCartBtnIcon.classList.contains('bi-chevron-down')) {
+      inCartBtnIcon.classList.remove('bi-chevron-down')
+      inCartBtnIcon.classList.add('bi-chevron-up')
+    } else {
+      inCartBtnIcon.classList.remove('bi-chevron-up')
+      inCartBtnIcon.classList.add('bi-chevron-down')
+    }
+  })
+</script>
+
+<%- include('../layout/footer') %>

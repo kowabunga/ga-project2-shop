@@ -1,14 +1,19 @@
-<%- include('../layout/header', {title:'Cart'}) %>
+<%- include('../layout/header', {title:'Order Placed'}) %>
 
-<h1 class="mb-3">Cart</h1>
-<% if (!cart) { %>
-<p class="lead">Nothing's in your cart... maybe you should go buy some stuff?</p>
-<% } %>
-
-<% if (cart) { %>
-<% for( let key in cart.products ) { %>
-<%- include('../partials/cartProduct.ejs',{cartItem:cart.products[key], cartId:cart._id}),   %>
-<% } %>
+<div class="row">
+  <h1>Thank you for your order!</h1>
+  <p class="lead">We are preparing your order now. </p>
+  <p>You will receive an email with your tracking information shortly.</p>
+  <br>
+  <p class="mb-5">Please see a review of your order below.</p>
+</div>
+<div class="row">
+  <ul class="list-group mb-5" id="cartList">
+    <% order.products.forEach(product => { %>
+    <%- include('../partials/checkoutProduct.ejs', {cartItem:product}) %>
+    <% }) %>
+  </ul>
+</div>
 <div class="row">
   <div class="col-md-9"></div>
   <div class="col-md-3">
@@ -16,10 +21,7 @@
       <p class="d-flex justify-content-between w-100"><strong class="text-bold">Subtotal:</strong> <span>$ <%= total.toFixed(2) %></span> </p>
       <p class="d-flex justify-content-between w-100"><strong>Shipping:</strong> <span>$4.99</span></p>
       <p class="d-flex justify-content-between w-100"><strong>Total:</strong> <span>$<%= (total+5.99).toFixed(2) %></span></p>
-      <a href="/checkout" class="btn btn-dark w-100 mt-3">Checkout</a>
     </div>
   </div>
 </div>
-<% } %>
-
 <%- include('../layout/footer') %>

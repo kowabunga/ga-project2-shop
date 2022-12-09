@@ -1,21 +1,26 @@
 const Cart = require('../models/cart');
 
 async function index(req, res) {
-  const cart = await Cart.findOne({ user: req.user._id }).populate({
-    path: 'products.product',
-  });
+  try {
+    const cart = await Cart.findOne({ user: req.user._id }).populate({
+      path: 'products.product',
+    });
 
-  //   If there's nothing in the cart, just render the cart page without anything on it
-  if (!cart) return res.render('cart/index', { cart: null });
+    //   If there's nothing in the cart, just render the cart page without anything on it
+    if (!cart) return res.render('cart/index', { cart: null });
 
-  //   We're going to take all the individual products and create a "hashmap" of them so that we know the counts of each product!
-  let total = 0;
-  cart.products.forEach(
-    product => (total += product.product.price * product.count)
-  );
+    //   We're going to take all the individual products and create a "hashmap" of them so that we know the counts of each product!
+    let total = 0;
+    cart.products.forEach(
+      product => (total += product.product.price * product.count)
+    );
 
-  //   res.send(cart);
-  res.render('cart/index', { cart, total });
+    //   res.send(cart);
+    res.render('cart/index', { cart, total });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Something went wrong, check the terminal...');
+  }
 }
 
 async function addToCart(req, res) {
@@ -37,12 +42,9 @@ async function addToCart(req, res) {
     // also have to check if its already in the cart. If it is, just update it!
     if (
       cart.products.filter(product => {
-        console.log(product.product.toString());
-        console.log(req.body.productId);
         return product.product.toString() === req.body.productId;
       }).length >= 1
     ) {
-      console.log('here');
       for (let product of cart.products) {
         //For easy comparison, convert the mongoose _id from ObjectId to a string
         let mongoStr = product.product.toString();
@@ -54,8 +56,7 @@ async function addToCart(req, res) {
         }
       }
     } else {
-      console.log('or there');
-
+      // If the item is not in the cart already, let's add it
       cart.products.push({
         product: req.body.productId,
       });
@@ -70,9 +71,8 @@ async function addToCart(req, res) {
   }
 }
 
-async function update(req, res) {
+async function updateCartItem(req, res) {
   try {
-    const id = req.params.id || req.body.paramId;
     const cart = await Cart.findById(req.params.id).populate('products');
 
     for (let product of cart.products) {
@@ -94,4 +94,4 @@ async function update(req, res) {
   }
 }
 
-module.exports = { index, addToCart, update };
+module.exports = { index, new: addToCart, update: updateCartItem };

@@ -1,0 +1,14 @@
+<li class="list-group-item">
+  <div class="row rounded">
+    <div class="col-md-2">
+      <img src="<%= cartItem.product.image.url %>" alt="<%= cartItem.product.image.alt %>" class="img-fluid rounded">
+    </div>
+    <div class="col-md-4"></div>
+    <div class="col-md-6 d-flex flex-column justify-content-around">
+      <div class="d-flex">
+        <h5><%= cartItem.count %>x <%= cartItem.product.name %> </h5>
+        <p class="lead ms-auto">$<%= cartItem.product.price %> </p>
+      </div>
+    </div>
+  </div>
+</li>

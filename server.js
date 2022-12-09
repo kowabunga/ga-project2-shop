@@ -8,9 +8,11 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 const methodOverride = require('method-override');
+
 const indexRoutes = require('./routes/index');
 const productRoutes = require('./routes/product');
 const cartRoutes = require('./routes/cart');
+const checkoutRoutes = require('./routes/checkout');
 
 // create the Express app
 const app = express();
@@ -53,6 +55,7 @@ app.use(function (req, res, next) {
 app.use('/', indexRoutes);
 app.use('/products', productRoutes);
 app.use('/cart', cartRoutes);
+app.use('/checkout', checkoutRoutes);
 
 // invalid request, send 404 page
 app.use(function (req, res) {
