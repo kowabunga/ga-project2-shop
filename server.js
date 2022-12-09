@@ -10,6 +10,7 @@ const passport = require('passport');
 const methodOverride = require('method-override');
 
 const indexRoutes = require('./routes/index');
+const reviewRoutes = require('./routes/reviews');
 const productRoutes = require('./routes/product');
 const cartRoutes = require('./routes/cart');
 const checkoutRoutes = require('./routes/checkout');
@@ -54,6 +55,7 @@ app.use(function (req, res, next) {
 
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
+app.use('/', reviewRoutes);
 app.use('/products', productRoutes);
 app.use('/cart', cartRoutes);
 app.use('/checkout', checkoutRoutes);

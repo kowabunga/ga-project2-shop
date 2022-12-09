@@ -11,29 +11,47 @@
 
 <h3>Shipping Info</h3>
 <form action="/checkout" method="POST">
-  <div class="mb-3">
+  <div class="form-floating mb-3">
     <input type="text" class="form-control" id="name" placeholder="Name">
+    <label for="name">Name</label>
   </div>
-  <div class="mb-3">
+  <div class="form-floating mb-3">
     <input type="email" class="form-control" id="email" placeholder="Email">
+    <label for="email">Email</label>
   </div>
-  <div class="mb-3">
+  <div class="form-floating mb-3">
     <input type="text" class="form-control" id="street" placeholder="Street">
+    <label for="street">Street</label>
   </div>
   <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="City" aria-label="City">
-    <input type="text" class="form-control" placeholder="State" aria-label="State">
+    <div class="form-floating">
+      <input type="text" class="form-control" placeholder="City" aria-label="City">
+      <label for="City">City</label>
+    </div>
+    <div class="form-floating">
+      <input type="text" class="form-control" placeholder="State" aria-label="State">
+      <label for="state">State</label>
+    </div>
   </div>
 
   <hr>
 
   <h3>Billing Info</h3>
   <div class="mb-3">
-    <input type="text" class="form-control" id="name" placeholder="Credit Card Number">
+    <div class="form-floating">
+      <input type="text" class="form-control" id="creditCardNumber" placeholder="Credit Card Number">
+      <label for="creditCardNumber">Credit Card Number</label>
+    </div>
   </div>
   <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="CVV" aria-label="CVV">
-    <input type="text" class="form-control" placeholder="MM/YY" aria-label="State">
+    <div class="form-floating">
+      <input type="text" class="form-control" placeholder="CVV" aria-label="CVV">
+      <label for="cvv">CVV</label>
+    </div>
+    <div class="form-floating">
+      <input type="text" class="form-control" placeholder="MM/YY" aria-label="State">
+      <label for="state">State</label>
+    </div>
   </div>
   <div class="row">
     <div class="col-md-9"></div>

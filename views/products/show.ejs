@@ -2,10 +2,10 @@
 
 <a href="/products" class="btn btn-outline-secondary mb-2"><i class="bi bi-arrow-left"></i>All Products</a>
 <div class="row">
-  <div class="col-sm-12 col-md-7 col-lg-6">
+  <div class="col-sm-12 col-md-7 col-lg-4">
     <img src="<%= product.image.url %> " alt="<%= product.image.alt %> " class="img-fluid rounded">
   </div>
-  <div class="col-sm-12 col-md-5 col-lg-6 mt-5 mt-md-0 p-md-5">
+  <div class="col-sm-12 col-md-5 col-lg-8 mt-5 mt-md-0 p-md-5">
     <h1 class="display-5"><%= product.name %></h1>
     <p class="lead">$<%= product.price %> </p>
     <p><%= product.description %> </p>
@@ -15,5 +15,24 @@
     </form>
   </div>
 </div>
+<div class="row">
+  <h3 class="my-3">Reviews</h3>
+  <hr>
+  <% if (user) { %>
+  <div class="col-3 ms-auto">
+    <button type="button" class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#addReviewModal">
+      Add Review
+    </button>
+  </div>
+  <% } %>
+  <ul class=" list-group list-group-flush">
+    <% product.reviews.forEach(review => { %>
+    <%- include('../partials/review.ejs', {review}) %>
+    <% }) %>
+  </ul>
+</div>
+<!-- Add review form modal below -->
+<%- include('../partials/reviewModal', {product}) %>
+
 
 <%- include('../layout/footer') %>

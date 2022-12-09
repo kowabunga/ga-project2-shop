@@ -4,6 +4,6 @@ const checkIfLoggedIn = require('../middleware/checkIfLoggedIn');
 
 router.get('/', checkIfLoggedIn, checkoutController.index);
 
-router.post('/',checkIfLoggedIn, checkoutController.create)
+router.post('/', checkIfLoggedIn, checkoutController.create);
 
 module.exports = router;

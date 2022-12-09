@@ -12,6 +12,10 @@ const reviewSchema = new Schema(
       type: String,
       required: true,
     },
+    title: {
+      type: String,
+      required: true,
+    },
     comment: {
       type: String,
       required: true,
@@ -49,7 +53,10 @@ const productSchema = new Schema({
     min: 0,
   },
   image: imageSchema,
-  reviews: [reviewSchema],
+  reviews: {
+    type: [reviewSchema],
+    default: [],
+  },
 });
 
 module.exports = model('Product', productSchema);

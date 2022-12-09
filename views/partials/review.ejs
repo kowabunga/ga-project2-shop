@@ -1,0 +1,26 @@
+<li class="list-group-item">
+  <figure>
+    <div class="d-flex justify-content-end align-items-center">
+      <!-- Check if the user id on review equals the user id from res.locals.user -->
+      <% if (user && review.user.equals(user._id)) { %>
+
+      <form action="/reviews/<%= review._id %>?_method=PUT" method="POST">
+        <button class="btn btn-link text-warning"><i class="bi bi-pencil"></i></button>
+      </form>
+      <form action="/reviews/<%= review._id %>?_method=DELETE" method="POST">
+        <button type="submit" class="ms-2 btn btn-link text-danger"><i class="bi bi-trash"></i></button>
+      </form>
+      <% } %>
+
+    </div>
+    <blockquote class="blockquote" id="blockquote">
+      <p class="lead">
+        <%= review.title %>
+      </p>
+      <%= review.comment %>
+    </blockquote>
+    <figcaption class="blockquote-footer pt-1 ps-3">
+      <%= review.name %>, <%= new Date(review.createdAt).toLocaleDateString() %>
+    </figcaption>
+  </figure>
+</li>

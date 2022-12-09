@@ -6,7 +6,7 @@ async function index(req, res) {
 
 async function show(req, res) {
   try {
-    const product = await Product.findById(req.params.id);
+    const product = await Product.findById(req.params.id).populate('reviews');
 
     res.render('products/show', { product });
   } catch (error) {
