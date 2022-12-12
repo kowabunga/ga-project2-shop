@@ -1,7 +1,7 @@
-<%- include('./layout/header', {title:'Home Page'}) %>
+<%- include('./layout/header', {title:'Homepage - Shopper Tropper', page:'index'}) %>
 
-<div class="p-5 mb-4 bg-dark rounded-3 shadow">
-  <div class="container-fluid py-5 text-light">
+<div class="row mx-1 mx-sm-0 mb-4 bg-dark rounded-3 shadow">
+  <div class="col-md-6 col-lg-8 container-fluid py-5 text-light p-5">
     <h1>Welcome to Shopper Tropper</h1>
     <p class="lead">
       Everything you wanted in one spot.
@@ -10,9 +10,12 @@
       All the goods you need to make your home your own in one spot.
     </p>
   </div>
+  <div class="d-none d-md-block col-md-6 col-lg-4 p-0">
+    <img src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v932-ning-51_1-klbun37w.jpg?w=1200&h=1200&dpr=1&fit=clip&crop=default&fm=jpg&q=75&vib=3&con=3&usm=15&cs=srgb&bg=F4F4F3&ixlib=js-2.2.1&s=39c41ba98c0f5879e17fd7bb0529fde1" alt="shopping cart drawing" class="img-fluid rounded">
+  </div>
 </div>
 
-<div class="row ">
+<div class="row pt-4">
   <div class="col-md-4 mx-auto d-flex flex-column align-items-center">
     <h2>You May Like...</h2>
     <%- include('./partials/singleProductCard',{product:randomProduct}) %>

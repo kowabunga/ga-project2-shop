@@ -1,13 +1,15 @@
 <nav class="navbar navbar-expand-sm bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">Shopper Tropper</a>
+    <a class="navbar-brand" href="/">
+      <img src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v932-ning-51_1-klbun37w.jpg?w=1200&h=1200&dpr=1&fit=clip&crop=default&fm=jpg&q=75&vib=3&con=3&usm=15&cs=srgb&bg=F4F4F3&ixlib=js-2.2.1&s=39c41ba98c0f5879e17fd7bb0529fde1" alt="shopping cart" width="30" height="24" class="img-fluid rounded"> Shopper Tropper
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/products">Products</a>
+          <a class="nav-link <%= page ==='product' ?  'active' : '' %> " aria-current="page" href="/products">Products</a>
         </li>
         <% if (!user) { %>
         <li class="nav-item">
@@ -16,7 +18,7 @@
         <% } %>
         <% if (user) { %>
         <li class="nav-item">
-          <a class="nav-link" href="/cart">Cart</a>
+          <a class="nav-link <%= page==='cart' &&  'active' %>" href="/cart">Cart</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/logout">Logout</a>
