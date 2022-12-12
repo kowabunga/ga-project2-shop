@@ -20,11 +20,17 @@ async function edit(req, res) {
   try {
     const product = await Product.findOne({ review: req.params.id });
 
-    // Filter out the review that matches the id so that we have the review we have to edit
-    let review = product.reviews.filter(review =>
-      review._id.equals(req.params.id)
+    // Filter out the index of the review that matches the id so that we have the review we have to edit
+    let reviewId = product.reviews.findIndex(
+      review => review._id.toString() === req.params.id
     );
-    console.log(review);
+
+    product.reviews[reviewId].title = req.body.title;
+    product.reviews[reviewId].comment = req.body.comment;
+
+    product.save();
+
+    res.redirect(`/products/${product._id}`);
   } catch (error) {
     console.log(error);
     res.status(500).send('Something went wrong, check the terminal...');

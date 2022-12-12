@@ -4,9 +4,9 @@
       <!-- Check if the user id on review equals the user id from res.locals.user -->
       <% if (user && review.user.equals(user._id)) { %>
 
-      <form action="/reviews/<%= review._id %>?_method=PUT" method="POST">
-        <button class="btn btn-link text-warning"><i class="bi bi-pencil"></i></button>
-      </form>
+
+      <button type="button" class="btn btn-link text-warning" data-bs-toggle="modal" data-bs-target="#editReviewModal<%= review._id  %>"><i class="bi bi-pencil"></i></button>
+
       <form action="/reviews/<%= review._id %>?_method=DELETE" method="POST">
         <button type="submit" class="ms-2 btn btn-link text-danger"><i class="bi bi-trash"></i></button>
       </form>
@@ -24,3 +24,4 @@
     </figcaption>
   </figure>
 </li>
+<%- include('../partials/editReviewModal.ejs', {review}) %>

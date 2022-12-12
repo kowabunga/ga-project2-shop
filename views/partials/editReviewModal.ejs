@@ -1,0 +1,22 @@
+<div class="modal fade" id="editReviewModal<%= review._id  %>" tabindex="-1" aria-labelledby="editReviewLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-body p-5">
+        <form action="/reviews/<%= review._id %>?_method=PUT" method="POST" class="clearfix">
+          <h2 class="mb-5 text-center">Edit Review</h2>
+          <div class="form-floating mb-3">
+            <input type="title" class="form-control" id="floatingInput" placeholder="Title" name="title" value="<%= review.title %> ">
+            <label for="floatingInput">Title</label>
+          </div>
+          <div class="form-floating mb-3">
+            <textarea type="comment" class="form-control" id="floatingInput" placeholder="Comment" name="comment"><%= review.comment %></textarea>
+            <label for="floatingInput">Comment</label>
+          </div>
+          <button type="submit" class="btn btn-outline-primary text-center float-end">Submit Edit</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
