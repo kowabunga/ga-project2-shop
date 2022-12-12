@@ -1,0 +1,31 @@
+<%- include('./layout/header', {title:'Home Page'}) %>
+
+<div class="p-5 mb-4 bg-dark rounded-3 shadow">
+  <div class="container-fluid py-5 text-light">
+    <h1>Welcome to Shopper Tropper</h1>
+    <p class="lead">
+      Everything you wanted in one spot.
+    </p>
+    <p>
+      All the goods you need to make your home your own in one spot.
+    </p>
+  </div>
+</div>
+
+<div class="row ">
+  <div class="col-md-4 mx-auto d-flex flex-column align-items-center">
+    <h2>You May Like...</h2>
+    <%- include('./partials/singleProductCard',{product:randomProduct}) %>
+  </div>
+  <div class="col-md-1 d-lg-none"></div>
+  <div class="col-md-7 col-lg-8 pt-5 px-5 px-md-0">
+    <h2>Stuff. Yes, we have the stuff.</h2>
+    <p class="lead">We have it all.</p>
+    <p>Check out the variety of products we have to offer. We're sure you'll find the thing you're looking for.</p>
+    <div class="d-grid col-sm-12 col-md-4 col-lg-3">
+      <a href="/products" class="btn btn-outline-primary">All Products</a>
+    </div>
+  </div>
+</div>
+
+<%- include('./layout/footer') %>

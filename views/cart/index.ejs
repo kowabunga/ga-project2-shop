@@ -1,14 +1,14 @@
 <%- include('../layout/header', {title:'Cart'}) %>
 
 <h1 class="mb-3">Cart</h1>
-<% if (!cart) { %>
+<% if (!cart || cart.products.length === 0) { %>
 <p class="lead">Nothing's in your cart... maybe you should go buy some stuff?
 </p>
 <a href="/products">View Products</a>
 
 <% } %>
 
-<% if (cart) { %>
+<% if (cart?.products.length > 0) { %>
 <% for( let key in cart.products ) { %>
 <%- include('../partials/cartProduct.ejs',{cartItem:cart.products[key], cartId:cart._id}),   %>
 <% } %>

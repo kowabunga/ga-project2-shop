@@ -42,16 +42,12 @@ async function addToCart(req, res) {
     // also have to check if its already in the cart. If it is, just update it!
     if (
       cart.products.filter(product => {
-        return product.product.toString() === req.body.productId;
+        return product.product.equals(req.body.productId);
       }).length >= 1
     ) {
       for (let product of cart.products) {
-        //For easy comparison, convert the mongoose _id from ObjectId to a string
-        let mongoStr = product.product.toString();
-        let reqBdyStr = req.body.productId;
-
         //   If this is the same object, update the count on the product subdocument
-        if (mongoStr === reqBdyStr) {
+        if (product.product.equals(req.body.productId)) {
           product.count += 1;
         }
       }
@@ -76,13 +72,14 @@ async function updateCartItem(req, res) {
     const cart = await Cart.findById(req.params.id).populate('products');
 
     for (let product of cart.products) {
-      //For easy comparison, convert the mongoose _id from ObjectId to a string
-      let mongoStr = product.product.toString();
-      let reqBdyStr = req.body.productId;
-
-      //   If this is the same object, update the count on the product subdocument
-      if (mongoStr === reqBdyStr) {
+      // Make sure product is the one we're looking for to update the count in the cart
+      if (product.product.equals(req.body.productId)) {
         product.count = req.body.quantity;
+      }
+
+      // If a product count is equal to 0, delete it from the cart
+      if (product.count === 0) {
+        cart.products.remove(product._id);
       }
     }
     await cart.save();

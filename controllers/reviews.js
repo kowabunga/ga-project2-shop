@@ -46,6 +46,7 @@ async function deleteReview(req, res) {
     await product.reviews.remove(req.params.id);
 
     await product.save();
+    
     res.redirect(`/products/${product._id}`);
   } catch (error) {
     console.log(error);

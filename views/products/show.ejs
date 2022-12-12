@@ -1,7 +1,7 @@
 <%- include('../layout/header', {title:product.name}) %>
-
 <a href="/products" class="btn btn-outline-secondary mb-2"><i class="bi bi-arrow-left"></i>All Products</a>
-<div class="row">
+
+<div class="row mt-3 mb-5">
   <div class="col-sm-12 col-md-7 col-lg-4">
     <img src="<%= product.image.url %> " alt="<%= product.image.alt %> " class="img-fluid rounded">
   </div>
@@ -10,21 +10,25 @@
     <p class="lead">$<%= product.price %> </p>
     <p><%= product.description %> </p>
     <form action="/cart" method="POST">
-      <input type="text" value="<%= product._id %>" hidden name="productId">
-      <button class="btn btn-primary" id="add-to-cart" type="submit">Add To Cart</button>
+      <input type=" text" value="<%= product._id %>" hidden name="productId">
+      <button class="btn btn-primary w-100" id="add-to-cart" type="submit">Add To Cart</button>
     </form>
   </div>
 </div>
-<div class="row">
-  <h3 class="my-3">Reviews</h3>
-  <hr>
-  <% if (user) { %>
-  <div class="col-3 ms-auto">
+<div class="row align-items-center">
+  <div class="col-md-3">
+    <h3 class="my-3">Reviews</h3>
+  </div>
+  <div class="col-md-6"></div>
+  <div class="col-md-3">
+    <% if (user) { %>
     <button type="button" class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#addReviewModal">
       Add Review
     </button>
+    <% } %>
   </div>
-  <% } %>
+</div>
+<div class="row">
   <ul class=" list-group list-group-flush">
     <% product.reviews.forEach(review => { %>
     <%- include('../partials/review.ejs', {review}) %>

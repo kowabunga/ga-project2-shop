@@ -1,14 +1,12 @@
 const router = require('express').Router();
 const passport = require('passport');
+const Product = require('../models/product');
 
 // The root route renders our only view
-router.get('/', function (req, res) {
-  //UPDATE THIS
-  // Where do you want to go for the root route
-  // in the student demo this was res.redirect('/movies'), what do you want?
-  // This could be a landing page, or just redirect to your main resource page which you'll have an a tag that makes
-  // a request to `/auth/google` route below
-  res.redirect('/products');
+router.get('/', async function (req, res) {
+  // Get a random product when you load the page each time for the "You may like..." section
+  const randomProduct = await Product.aggregate([{ $sample: { size: 1 } }]);
+  res.render('index', { randomProduct: randomProduct[0] });
 });
 
 // Google OAuth login route
