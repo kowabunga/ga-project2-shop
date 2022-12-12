@@ -9,6 +9,10 @@ router.get('/', async function (req, res) {
   res.render('index', { randomProduct: randomProduct[0] });
 });
 
+router.get('/login', function (req, res) {
+  res.render('login');
+});
+
 // Google OAuth login route
 router.get(
   '/auth/google',
@@ -19,8 +23,8 @@ router.get(
 router.get(
   '/oauth2callback',
   passport.authenticate('google', {
-    successRedirect: '/cart', // UPDATE THIS, where do you want the client to go after you login
-    failureRedirect: '/', //  UPDATE THIS, where do you want the client to go if login fails
+    successRedirect: '/user', // UPDATE THIS, where do you want the client to go after you login
+    failureRedirect: '/login', //  UPDATE THIS, where do you want the client to go if login fails
   })
 );
 
