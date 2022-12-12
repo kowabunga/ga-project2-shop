@@ -1,7 +1,9 @@
 <%- include('../layout/header', {title:'Cart'}) %>
 
-<h1 class="mb-3">Cart</h1>
+
 <% if (!cart || cart.products.length === 0) { %>
+<h1 class="mb-3">Cart</h1>
+
 <p class="lead">Nothing's in your cart... maybe you should go buy some stuff?
 </p>
 <a href="/products">View Products</a>
@@ -9,6 +11,15 @@
 <% } %>
 
 <% if (cart?.products.length > 0) { %>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active">Cart</li>
+  </ol>
+</nav>
+<h1 class="mb-3">Cart</h1>
+
 <% for( let key in cart.products ) { %>
 <%- include('../partials/cartProduct.ejs',{cartItem:cart.products[key], cartId:cart._id}),   %>
 <% } %>

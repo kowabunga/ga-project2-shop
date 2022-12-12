@@ -1,4 +1,10 @@
 <%- include('../layout/header', {title:'Products'}) %>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Products</li>
+  </ol>
+</nav>
 <div class="d-flex flex-wrap justify-content-evenly">
   <% products.forEach(product => { %>
   <%- include('../partials/singleProductCard',{product}) %>
