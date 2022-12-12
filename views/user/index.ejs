@@ -1,0 +1,31 @@
+<%- include('../layout/header', {title:'Login - Shopper Tropper', page:'login'}) %>
+
+<h1>Hello <%= user.name %>! </h1>
+<hr>
+<div class="row">
+  <h3>Account Information</h3>
+  <p><strong>Name: </strong><%= user.name %> </p>
+  <p><strong>Email: </strong><%= user.email %> </p>
+</div>
+
+<div class="row mt-5">
+  <h3>All Orders</h3>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Order #</th>
+        <th>Status</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% orders.forEach(order => { %>
+      <%- include('../partials/orderBrief.ejs',{order}) %>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<%- include('../layout/footer') %>

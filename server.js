@@ -15,6 +15,7 @@ const productRoutes = require('./routes/product');
 const cartRoutes = require('./routes/cart');
 const checkoutRoutes = require('./routes/checkout');
 const orderRoutes = require('./routes/orders');
+const userRoutes = require('./routes/user');
 
 // create the Express app
 const app = express();
@@ -60,6 +61,7 @@ app.use('/products', productRoutes);
 app.use('/cart', cartRoutes);
 app.use('/checkout', checkoutRoutes);
 app.use('/orders', orderRoutes);
+app.use('/user', userRoutes);
 
 // invalid request, send 404 page
 app.use(function (req, res) {
