@@ -1,35 +1,51 @@
-# passport-boilerplate
+# Welcome to Shopper Tropper
 
+## Everything you wanted, all in one spot.
 
-This is your passport boilerplate.
+Let Shopper Tropper provide you with all the household items, tools, gadgets and more that you need to make your home your own.
 
-## Setup 
+## Getting Started
 
-1. Clone the repo
-2. Rename the folder to your Project
-3. Delete the `.git` file, when you are in the root of the file, you can press `ls` and you should see a `.git` file, then go ahead and run `rm -rf .git`
+To visit the website, please go to the [Shopper Tropper](https://sore-pink-lemming-vest.cyclic.app) website to view everything it has to offer.
 
+Shopper Tropper can be viewed without an account to the website but in order to add items to your cart, create orders, or place reviews you must have an account. To sign up for an account simply hit the "Login" link and log in with your Google account (no passwords to remember!).
 
-#### Setup your git repo
-0. Setup your `.env` file and add all the things you need! (look at mongoose movies for reference!)
-1. in the project root `git init`
-2. `git add .` to add all the starter code
-3. `git commit -m "setup boilerplate"` 
-4. go to github and create your github and create a repo (Without a readme or liscense you can add that later!)
-5. copy the remote address
-6. In your terminal add the remote `git remote add origin yourGithubRepo'sAddressGoesHere`
-7. `git pull origin main` If a screen pulls up asking you to do something just press `:q` and then `enter` (thats vim btw :) )
-8. `git push origin main`
+## Site Functionality
 
-#### Setup your login (THE APP WON'T WORK until you do, no VIEWS are setup, or the landing route)
+Logged in users of the site have several additional functionalities that casual visitors to the site do not have. Registered users can build shopping carts, make and edit reviews, and create orders to have items shipped to them. Examples below.
 
-0. Setup your database connection string
-1. Then Setup Your User Model, 
-2. Follow the steps from the lesson plan to get your Google login credentials for your `.env` file (create the file if you haven't), or you can just copy the ones from earlier if you want to reuse them.
-3. Setup the Code in your config passport 
-4. Setup your callback routes in your `routes/index`
-5. Setup a view and test your login!
+If a user is logged in they can add a review by clicking the "Add Review" button and filling out the form as seen below.
 
-#### Make a commit 
+![Add Review](readme_images/add_review.png)
 
-```git commit -m "setup up oauth and User Model"```
+You can also edit a review by clicking the yellow pencil icon next to the review that a user has written. (A user cannot edit another user's review)
+![Review Buttons](readme_images/edit_some.png)
+![Edit Review](readme_images/edit_review.png)
+
+You can add products to your cart and, when ready, opt to checkout
+![Add Cart](readme_images/cart.png)
+
+Then, checkout!
+![Checkout](readme_images/checkout.png)
+
+And voilà
+![Order Placed](readme_images/order_done.png)
+
+Lastly, users can look at their account to see their previous orders and look at the individual order details.
+![User](readme_images/user.png)
+![User Order Details](readme_images/user_order.png)
+
+## Next Steps
+
+- More detailed User page
+- Users can register as a "seller" to create products and sell those products on the site
+
+## Technologies Used
+
+- HTML
+- CSS (Bootstrap)
+- JavaScript
+- Mongoose/MongoDB
+- EJS
+- Express
+- PassportJS (OAuth)
