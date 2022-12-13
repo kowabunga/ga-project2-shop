@@ -6,7 +6,7 @@ Let Shopper Tropper provide you with all the household items, tools, gadgets and
 
 ## Getting Started
 
-To visit the store, please go to the [Shopper Tropper](https://sore-pink-lemming-vest.cyclic.app) website to view everything it has to offer.
+To visit the store, please go to the [Shopper Tropper](https://shoppertropper.cyclic.app/) website to view everything it has to offer.
 
 Shopper Tropper can be viewed without an account to the website but in order to add items to your cart, create orders, or place reviews you must have an account. To sign up for an account simply hit the "Login" link and log in with your Google account (no passwords to remember!).
 
