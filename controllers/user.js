@@ -26,7 +26,7 @@ async function show(req, res) {
       product => (total += product.product.price * product.count)
     );
 
-    res.render('orders/show', { order, isUserRoute: true, total });
+    res.render('orders/show', { order, total });
   } catch (error) {
     console.log(error);
     res.status(500).send('Something went wrong, check the terminal...');

@@ -8,15 +8,11 @@
 </nav>
 
 <div class="row">
-  <% if (isUserRoute) { %>
-  <p class="lead">Order Number <%= order.orderNumber %></p>
-  <% } else { %>
   <h1>Thank you for your order!</h1>
-  <p class="lead">Order Number <%= order.orderNumber %>. — We are preparing your order now. </p>
+  <p class="lead">We are preparing your order now. </p>
   <p>You will receive an email with your tracking information shortly.</p>
   <br>
   <p class="mb-5">Please see a review of your order below.</p>
-  <% } %>
 </div>
 <div class="row">
   <ul class="list-group mb-5" id="cartList">

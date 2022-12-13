@@ -25,7 +25,11 @@
   <div class="col-md-3">
     <h3 class="my-3">Reviews</h3>
   </div>
-  <div class="col-md-6"></div>
+  <% if (product.reviews.length === 0) { %>
+  <p>There are no reviews yet...</p>
+  <% } %>
+  <div class="col-md-6">
+  </div>
   <div class="col-md-3">
     <% if (user) { %>
     <button type="button" class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#addReviewModal">
