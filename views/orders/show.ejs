@@ -1,9 +1,16 @@
-<%- include('../layout/header', {title:'Order Placed'}) %>
+<%- include('../layout/header', {title:'Order Placed', page:'order'}) %>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/user">User</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Order #<%= order.orderNumber %> </div>
+    </li>
+  </ol>
+</nav>
 
 <div class="row">
   <% if (isUserRoute) { %>
   <p class="lead">Order Number <%= order.orderNumber %></p>
-  <% else { %>
+  <% } else { %>
   <h1>Thank you for your order!</h1>
   <p class="lead">Order Number <%= order.orderNumber %>. — We are preparing your order now. </p>
   <p>You will receive an email with your tracking information shortly.</p>
