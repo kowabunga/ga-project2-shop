@@ -21,7 +21,7 @@ router.get(
 
 // Google OAuth callback route
 router.get(
-  '/oauth2callback',
+  'auth/google/callback',
   passport.authenticate('google', {
     successRedirect: '/user', // UPDATE THIS, where do you want the client to go after you login
     failureRedirect: '/login', //  UPDATE THIS, where do you want the client to go if login fails

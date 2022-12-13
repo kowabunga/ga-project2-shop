@@ -1,5 +1,5 @@
 const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+const GoogleStrategy = require('passport-google-oauth2').Strategy;
 const User = require('../models/user');
 
 // configuring Passport!
@@ -9,6 +9,7 @@ passport.use(
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_SECRET,
       callbackURL: process.env.GOOGLE_CALLBACK,
+      passReqToCallback:true
     },
     async function (accessToken, refreshToken, profile, cb) {
       // a user has logged in via OAuth!
