@@ -38,16 +38,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // mount the session middleware
-app.use(
-  session({
-    store: MongoStore.create({
-      mongoUrl: process.env.DATABASE_URL,
-    }),
-    secret: process.env.SECRET,
-    resave: false,
-    saveUninitialized: true,
-  })
-);
+// app.use(
+//   session({
+//     store: MongoStore.create({
+//       mongoUrl: process.env.DATABASE_URL,
+//     }),
+//     secret: process.env.SECRET,
+//     resave: false,
+//     saveUninitialized: true,
+//   })
+// );
 
 app.use(passport.initialize());
 app.use(passport.session());
