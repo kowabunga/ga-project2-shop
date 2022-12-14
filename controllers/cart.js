@@ -15,7 +15,6 @@ async function index(req, res) {
       product => (total += product.product.price * product.count)
     );
 
-    //   res.send(cart);
     res.render('cart/index', { cart, total });
   } catch (error) {
     console.log(error);
