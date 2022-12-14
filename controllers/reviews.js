@@ -28,7 +28,7 @@ async function edit(req, res) {
     product.reviews[reviewId].title = req.body.title;
     product.reviews[reviewId].comment = req.body.comment;
 
-    product.save();
+    await product.save();
 
     res.redirect(`/products/${product._id}`);
   } catch (error) {
@@ -46,7 +46,7 @@ async function deleteReview(req, res) {
     await product.reviews.remove(req.params.id);
 
     await product.save();
-    
+
     res.redirect(`/products/${product._id}`);
   } catch (error) {
     console.log(error);

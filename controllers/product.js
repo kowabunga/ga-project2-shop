@@ -1,4 +1,5 @@
 const Product = require('../models/product');
+
 async function index(req, res) {
   const products = await Product.find({});
   res.render('products/index', { products });
