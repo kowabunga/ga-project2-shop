@@ -49,3 +49,7 @@ Lastly, users can look at their account to see their previous orders and look at
 - EJS
 - Express
 - PassportJS (OAuth)
+
+## Trello Board, Wireframe, and ERD
+
+[Trello Board](https://trello.com/b/s98SCR5g/ga-project-2-store)
